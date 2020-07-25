@@ -1,4 +1,4 @@
-function [f, a] = nicefig(varargin)
+function fs = nicefig(varargin)
   fontname = "Arial";
   fontsize = 14;
   pos = [300 200];
@@ -17,15 +17,19 @@ function [f, a] = nicefig(varargin)
     elseif strcmp(varargin{i}, "size")
       sz = varargin{i+1};
       i=i+1;
-    end
-  end
+    endif
+  endfor
 
-  f = figure();
-  a = gca();
+  fs.f = figure();
+  fs.a = gca();
+  fs.font = fontname;
+  fs.fontsize = fontsize;
+  fs.pos = pos;
+  fs.size = sz
+  
   box on;
   grid on;
-  set(a, 'fontname', fontname);
-  set(a, 'fontsize', fontsize);
-  set(f, 'position', [pos sz]);
-end
-
+  set(fs.a, 'fontname', fontname);
+  set(fs.a, 'fontsize', fontsize);
+  set(fs.f, 'position', [pos sz]);
+endfunction
