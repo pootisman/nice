@@ -1,4 +1,4 @@
-function leg = niceleg(varargin)
+function cb = nicebar(varargin)
   fontname = "Arial";
   fontsize = 14;
 
@@ -12,8 +12,7 @@ function leg = niceleg(varargin)
     end
   end
 
-  leg = legend();
-  set(leg, 'fontname', fontname);
-  set(leg, 'fontsize', fontsize);
-  set(leg, 'interpreter', 'tex');
+  cb = colorbar("southoutside");
+  set(cb, 'fontname', fontname);
+  set(cb, 'fontsize', fontsize);
 end

@@ -25,7 +25,7 @@ function fs = nicefig(varargin)
   fs.font = fontname;
   fs.fontsize = fontsize;
   fs.pos = pos;
-  fs.size = sz
+  fs.size = sz;
   
   box on;
   grid on;
