@@ -29,6 +29,7 @@ function fs = nicefig(varargin)
   
   box on;
   grid on;
+  hold on;
   set(fs.a, 'fontname', fontname);
   set(fs.a, 'fontsize', fontsize);
   set(fs.f, 'position', [pos sz]);
