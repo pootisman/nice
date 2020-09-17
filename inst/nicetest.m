@@ -21,7 +21,7 @@ xlim([-pi,pi]);
 
 niceprint(nf, "sin.png");
 
-disp("Testing 2D waterfall display");
+disp("Testing 3D waterfall display");
 
 X = randn(1,1e7);
 
@@ -38,3 +38,9 @@ title("3D waterfall surface test [Gaussian histograms]");
 view(45,45);
 xlim([-6,6]);
 niceprint(nf2, "wfall.png");
+
+disp("Testing 2D plot colormap override");
+
+for i = phases
+  nf = niceplot(nf, X, sin(X + i), 'Color', copper(ceil(pi/i)));
+endfor
