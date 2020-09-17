@@ -3,7 +3,8 @@ function fs = nicefig(varargin)
   fontsize = 14;
   pos = [300 200];
   sz = [560 420];
-
+  cmap = viridis(64);
+  
   for i = 1:length(varargin)
     if strcmp(varargin{i}, "fontname")
       fontname = varargin{i+1};
@@ -17,6 +18,9 @@ function fs = nicefig(varargin)
     elseif strcmp(varargin{i}, "size")
       sz = varargin{i+1};
       i=i+1;
+    elseif strcmp(varargin{i}, "cmap")
+      cmap = varargin{i+1};
+      i=i+1;
     endif
   endfor
 
@@ -26,9 +30,12 @@ function fs = nicefig(varargin)
   fs.fontsize = fontsize;
   fs.pos = pos;
   fs.size = sz;
+  fs.cmap = cmap;
+  fs.cmid = 1;
   
   box on;
   grid on;
+  hold on;
   set(fs.a, 'fontname', fontname);
   set(fs.a, 'fontsize', fontsize);
   set(fs.f, 'position', [pos sz]);
