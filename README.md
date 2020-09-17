@@ -7,6 +7,6 @@ To plot with this package, you will need to first create a figure with `nicefig(
 
 ## Examples
 ![2Dplot](https://gitty.jumpingcrab.com/Aleksei/nice/_edit/master/sin.svg)
-![2Dplot](https://gitty.jumpingcrab.com/Aleksei/nice/_edit/master/wfall.svg)
+![3Dplot](https://gitty.jumpingcrab.com/Aleksei/nice/_edit/master/wfall.svg)
 
 
