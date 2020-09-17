@@ -5,7 +5,7 @@ graphics_toolkit("gnuplot")
 
 X = [-pi:0.1:pi];
 
-phases = [0:0.1:2*pi];
+phases = [eps:0.1:2*pi];
 
 disp("Testing 2D plot display");
 nf = nicefig("fontname", "Latin Modern Roman", "fontsize", 14);
