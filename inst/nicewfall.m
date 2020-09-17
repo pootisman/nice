@@ -5,6 +5,7 @@ function h = nicewfall(samps, times, Ns, Nt, fig_struct )
     endif
     
     figure(fig_struct.f);
+    hold on;
     
     sampmin = min(samps);
     sampmax = max(samps);

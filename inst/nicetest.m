@@ -19,7 +19,7 @@ ylabel("Y values");
 title("2D figure test");
 xlim([-pi,pi]);
 
-niceprint(nf, "sin.png");
+%niceprint(nf, "sin.png");
 
 disp("Testing 3D waterfall display");
 
@@ -37,10 +37,15 @@ zlabel("Hit probability");
 title("3D waterfall surface test [Gaussian histograms]");
 view(45,45);
 xlim([-6,6]);
-niceprint(nf2, "wfall.png");
+%niceprint(nf2, "wfall.png");
 
 disp("Testing 2D plot colormap override");
+
+X = [-pi:0.1:pi];
+
 
 for i = phases
   nf = niceplot(nf, X, sin(X + i), 'Color', copper(ceil(pi/i)));
 endfor
+
+%niceprint(nf, "sin.png");

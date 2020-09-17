@@ -1,4 +1,4 @@
-function nf = niceplot(nf, y, varargin)
+function nf = nicehist(x, y, varargin)
   assert(isstruct(nf), "niceplot expects first argument to be a nicefig struct");
   
   figure(nf.f);
