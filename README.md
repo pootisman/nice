@@ -8,6 +8,3 @@ To plot with this package, you will need to first create a figure with `nicefig(
 ## Examples
 ![Image](sin.png)
 ![Image](wfall.png)
-
-
-
