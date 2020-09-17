@@ -17,6 +17,7 @@ endfor
 xlabel("X values");
 ylabel("Y values");
 title("2D figure test");
+xlim([-pi,pi]);
 
 niceprint(nf, "sin.png");
 
@@ -35,5 +36,5 @@ ylabel("Y values");
 zlabel("Hit probability");
 title("3D waterfall surface test [Gaussian histograms]");
 view(45,45);
-
+xlim([-6,6]);
 niceprint(nf2, "wfall.png");
