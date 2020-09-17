@@ -1,0 +1,9 @@
+nice >> Nice plots
+Figure spawn
+ nicefig
+Plot funcs
+ nicewfall niceplot niceleg nicebar
+Print funcs
+ niceprint
+Test funcs
+ nicetest
