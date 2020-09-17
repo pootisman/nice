@@ -4,6 +4,8 @@ function h = nicewfall(samps, times, Ns, Nt, fig_struct )
       fig_struct = nicefig();
     endif
     
+    figure(fig_struct.f);
+    
     sampmin = min(samps);
     sampmax = max(samps);
     nss = floor(length(samps)/Nt);
