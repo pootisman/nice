@@ -18,7 +18,7 @@ xlabel("X values");
 ylabel("Y values");
 title("2D figure test");
 
-niceprint(nf, "sin.svg");
+niceprint(nf, "sin.png");
 
 disp("Testing 2D waterfall display");
 
@@ -36,4 +36,4 @@ zlabel("Hit probability");
 title("3D waterfall surface test [Gaussian histograms]");
 view(45,45);
 
-niceprint(nf2, "wfall.svg");
+niceprint(nf2, "wfall.png");
