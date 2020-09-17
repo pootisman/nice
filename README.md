@@ -6,7 +6,12 @@ To install the package, you can simply copy it to easily accesible folder (e.g. 
 To plot with this package, you will need to first create a figure with `nicefig()` function. You can pass multiple arguments to this function, font size/name, colormap to use for plots, size and position of the window.
 
 ## Examples
+<<<<<<< HEAD
 ![IMAGE](sin.svg)
 ![IMAGE](wfall.svg)
+=======
+![https://gitty.jumpingcrab.com/Aleksei/nice/src/branch/master/sin.png](https://gitty.jumpingcrab.com/Aleksei/nice/src/branch/master/sin.png)
+![https://gitty.jumpingcrab.com/Aleksei/nice/src/branch/master/wfall.png](https://gitty.jumpingcrab.com/Aleksei/nice/src/branch/master/wfall.png)
+>>>>>>> 7c9a2faf65b9cca0f07b1c5ece917a9941c77379
 
 
