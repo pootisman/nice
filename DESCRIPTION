@@ -1,0 +1,9 @@
+Name: nice
+Version: 0.0.1
+Date: 17.09.2020
+Author: Aleksei Ponomarenko-Timofeev (alexeyponomarenko92@gmail.com)
+Maintainer: Aleksei Ponomarenko-Timofeev
+Title: Nice
+Description: A package for producing nice plots in Octave without
+ any regular hassle.
+License: GPLv3
