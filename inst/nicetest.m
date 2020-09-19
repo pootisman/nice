@@ -1,9 +1,9 @@
 close all;
 clear all;
 
-X = linspace(-pi, pi, 618);
+X = linspace(-pi, pi, 62);
 
-phases = linspace(0, 2*pi, 618);
+phases = linspace(0, 2*pi, 62);
 
 disp("Testing 2D plot display");
 nf = nicefig("fontname", "Latin Modern Roman", "fontsize", 14);
@@ -39,7 +39,7 @@ xlim([-6,6]);
 
 disp("Testing 2D plot colormap override");
 
-X = linspace(-pi, pi, 618);
+X = linspace(-pi, pi, 62);
 
 
 for i = phases
