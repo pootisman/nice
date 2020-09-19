@@ -3,7 +3,7 @@ clear all;
 
 X = linspace(-pi, pi, 62);
 
-phases = linspace(0, 2*pi, 62);
+phases = linspace(eps, 2*pi, 62);
 
 disp("Testing 2D plot display");
 nf = nicefig("fontname", "Latin Modern Roman", "fontsize", 14);
