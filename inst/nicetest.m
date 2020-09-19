@@ -1,5 +1,5 @@
-close all;
-clear all;
+%close all;
+%clear all;
 
 graphics_toolkit("gnuplot")
 
@@ -42,10 +42,9 @@ xlim([-6,6]);
 disp("Testing 2D plot colormap override");
 
 X = [-pi:0.1:pi];
-
-
+cm = copper(length(phases));
 for i = phases
-  nf = niceplot(nf, X, sin(X + i), 'Color', copper(ceil(pi/i)));
+  nf = niceplot(nf, X, cos(X + i), 'Color', cm(ceil(i/(2*pi)),:));
 endfor
 
 %niceprint(nf, "sin.png");
