@@ -3,14 +3,27 @@ function nf = niceplot(nf, y, varargin)
   
   figure(nf.f);
   hold on;
-  
+
+  cm_override = 0;
+
+  if any(strcmp(varargin, 'Color')) ~= 0
+    cm_override = 1;
+  endif
+
   if length(varargin) > 0
     Y = varargin{1};
     varargin = varargin(2:end);
-    plot(y, Y, 'Color', nf.cmap(nf.cmid,:), varargin);
+    if cm_override == 0
+      plot(y, Y, 'Color', nf.cmap(nf.cmid,:), varargin{:});
+    else
+      plot(y, Y, varargin{:});
+    endif
   else
-    plot(y, 'Color', nf.cmap(nf.cmid,:), varargin);
+    plot(y, 'Color', nf.cmap(nf.cmid,:), varargin{:});
   endif
-  
-  nf.cmid=nf.cmid+1;
+ 
+  if cm_override == 0
+    nf.cmid=mod(nf.cmid+1, length(nf.cmap));
+  endif
+
 endfunction

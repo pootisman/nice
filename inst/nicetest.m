@@ -5,7 +5,7 @@ X = linspace(-pi, pi, 62);
 
 phases = linspace(eps, 2*pi, 62);
 
-disp("Testing 2D plot display");
+disp("Testing 2D plot display...");
 nf = nicefig("fontname", "Latin Modern Roman", "fontsize", 14);
 
 for i = phases
@@ -19,7 +19,7 @@ xlim([-pi,pi]);
 
 %niceprint(nf, "sin.png");
 
-disp("Testing 3D waterfall display");
+disp("Testing 3D waterfall display...");
 
 X = randn(1,1e7);
 
@@ -37,13 +37,13 @@ view(45,45);
 xlim([-6,6]);
 %niceprint(nf2, "wfall.png");
 
-disp("Testing 2D plot colormap override");
+disp("Testing 2D plot colormap override, re-capture of old figure...");
 
 X = linspace(-pi, pi, 62);
 cm = copper(length(phases));
 
-for i = phases
-  nf = niceplot(nf, X, cos(X + i), 'Color', cm(ceil(i/(2*pi)),:));
+for i = 1:length(phases)
+  niceplot(nf, X, cos(X + phases(i)), 'Color', cm(ceil(i),:));
 endfor
 
 %niceprint(nf, "sin.png");
