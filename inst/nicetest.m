@@ -1,11 +1,9 @@
 %close all;
 %clear all;
 
-graphics_toolkit("gnuplot")
+X = linspace(-pi, pi, 62);
 
-X = [-pi:0.1:pi];
-
-phases = [eps:0.1:2*pi];
+phases = linspace(eps, 2*pi, 62);
 
 disp("Testing 2D plot display");
 nf = nicefig("fontname", "Latin Modern Roman", "fontsize", 14);
@@ -41,8 +39,9 @@ xlim([-6,6]);
 
 disp("Testing 2D plot colormap override");
 
-X = [-pi:0.1:pi];
+X = linspace(-pi, pi, 62);
 cm = copper(length(phases));
+
 for i = phases
   nf = niceplot(nf, X, cos(X + i), 'Color', cm(ceil(i/(2*pi)),:));
 endfor
