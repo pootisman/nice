@@ -1,5 +1,5 @@
 function cb = nicebar(nf, varargin)
-  fontname = nf.fontname;
+  fontname = nf.font;
   fontsize = nf.fontsize;
 
   reduce_vararg_len = 1;
