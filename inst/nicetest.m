@@ -52,6 +52,8 @@ function nicetest()
   xlabel("Normalized time");
   ylabel("Amplitude");
   title("Eye-diagram, Sine/Cosine");
+  
+  niceleg(nf, "Eye diagram");
 
 %niceprint(nf, "sin.png");
 

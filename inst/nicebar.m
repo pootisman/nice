@@ -3,7 +3,7 @@ function cb = nicebar(nf, varargin)
 
   figure(nf.f);
 
-  fontname = nf.font;
+  fontname = nf.fontname;
   fontsize = nf.fontsize;
 
   reduce_vararg_len = 1;

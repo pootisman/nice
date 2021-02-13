@@ -9,7 +9,7 @@ function nf = niceplot(nf, y, varargin)
   if any(strcmp(varargin, 'Color')) ~= 0
     cm_override = 1;
   endif
-
+  
   if length(varargin) > 0
     Y = varargin{1};
     varargin = varargin(2:end);
