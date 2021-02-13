@@ -20,12 +20,16 @@
 ## Spawn an instance Nice Figure. Box and grid modifiers
 ## are automatically enabled, as well as holding the plots
 ## 
-## varargin may contain following parameters
+## varargin may contain following parameters:
 ## "fontname" - Which font to use on figure (Default: Latin Modern Roman)
 ## "fontsize" - What size of the font to use (Default: 14)
 ## "position" - Where the figure shall appear on display (Default: [300 200])
 ## "size" - Which size should be used for the figure (Default: [560 420])
 ## "cmap" - Default colormap for the figure (Default: viridis(64))
+##
+## output "fs" is a root struct for Nice Figure, should be passed
+## to other nice functions to draw modify content in figure
+##
 
 function fs = nicefig(varargin)
   fontname = "Latin Modern Roman";
