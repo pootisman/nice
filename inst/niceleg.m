@@ -67,8 +67,9 @@ function nf = niceleg(nf, varargin)
       reduce=reduce+2;
     end
   end
-  varargin
-  leg = legend(varargin);
+  reduce
+  varargin{reduce:end}
+  leg = legend(varargin{reduce:end});
   
   set(leg, 'fontname', fontname);
   set(leg, 'fontsize', fontsize);
