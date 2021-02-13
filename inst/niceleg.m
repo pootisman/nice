@@ -60,7 +60,7 @@ function nf = niceleg(nf, varargin)
       i=i+1;
     end
   end
-
+  varargin{i:end}
   leg = legend(varargin{i:end});
   
   set(leg, 'fontname', fontname);
