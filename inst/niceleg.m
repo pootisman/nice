@@ -68,7 +68,7 @@ function nf = niceleg(nf, varargin)
     end
   end
   varargin(reduce:end)
-  leg = legend(cell2mat{varargin(reduce:end)});
+  leg = legend(varargin(reduce:end));
   
   set(leg, 'fontname', fontname);
   set(leg, 'fontsize', fontsize);
