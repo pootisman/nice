@@ -42,7 +42,7 @@ function nf = niceleg(nf, varargin)
   orientation = "vertical";
   numcolumns = 1;
   
-  reduce = 0;
+  reduce = 1;
   
   for i = 1:length(varargin)
     if strcmp(varargin{i}, "fontname")
@@ -67,8 +67,7 @@ function nf = niceleg(nf, varargin)
       reduce=reduce+2;
     end
   end
-  reduce
-  varargin{reduce:end}
+
   leg = legend(varargin{reduce:end});
   
   set(leg, 'fontname', fontname);
