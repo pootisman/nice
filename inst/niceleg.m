@@ -42,25 +42,32 @@ function nf = niceleg(nf, varargin)
   orientation = "vertical";
   numcolumns = 1;
   
+  reduce = 0;
+  
   for i = 1:length(varargin)
     if strcmp(varargin{i}, "fontname")
       fontname = varargin{i+1};
       i=i+1;
+      reduce=reduce+2;
     elseif strcmp(varargin{i}, "fontsize")
       fontsize = varargin{i+1};
       i=i+1;
+      reduce=reduce+2;
     elseif strcmp(varargin{i}, "location")
       location = varargin{i+1};
       i=i+1;
+      reduce=reduce+2;
     elseif strcmp(varargin{i}, "orientation")
       orientation = varargin{i+1};
       i=i+1;
+      reduce=reduce+2;
     elseif strcmp(varargin{i}, "numcolumns")
       numcolumns = varargin{i+1};
       i=i+1;
+      reduce=reduce+2;
     end
   end
-  varargin{i:end}
+  varargin{reduce:end}
   leg = legend(varargin{i:end});
   
   set(leg, 'fontname', fontname);
