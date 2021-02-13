@@ -20,12 +20,13 @@ function cb = nicebar(nf, varargin)
     end
   end
 
-  varargin = varargin(reduce_vararg_len:end)
+  varargin = varargin(reduce_vararg_len:end);
 
   cb = colorbar(varargin{:});
 
   set(cb, 'fontname', fontname);
   set(cb, 'fontsize', fontsize);
+  
   
   nf.cbars(end+1) = cb;
 end
