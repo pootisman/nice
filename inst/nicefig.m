@@ -1,4 +1,3 @@
-## Nice
 ## Copyright (C) 2020-2021 Aleksei Ponomarenko-Timofeev
 ## 
 ## This file is part of Nice plotter package.
