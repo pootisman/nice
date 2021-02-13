@@ -1,6 +1,10 @@
-function cb = nicebar(varargin)
-  fontname = "Arial";
-  fontsize = 14;
+function nf = nicebar(nf, varargin)
+  assert(isstruct(nf), "nicebar expects first argument to be a nicefig struct");
+
+  figure(nf.f);
+  
+  fontname = nf.fontname;
+  fontsize = nf.fontsize;
 
   for i = 1:length(varargin)
     if strcmp(varargin{i}, "fontname")
@@ -13,6 +17,9 @@ function cb = nicebar(varargin)
   end
 
   cb = colorbar("southoutside");
+  
   set(cb, 'fontname', fontname);
   set(cb, 'fontsize', fontsize);
+  
+  nf.cbars(end+1) = cb;
 end

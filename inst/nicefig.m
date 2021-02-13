@@ -1,5 +1,5 @@
 function fs = nicefig(varargin)
-  fontname = "Arial";
+  fontname = "Latin Modern Roman";
   fontsize = 14;
   pos = [300 200];
   sz = [560 420];
@@ -32,6 +32,8 @@ function fs = nicefig(varargin)
   fs.size = sz;
   fs.cmap = cmap;
   fs.cmid = 1;
+  fs.legs = {};
+  fs.cbars = {};
   
   box on;
   grid on;

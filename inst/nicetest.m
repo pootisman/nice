@@ -50,7 +50,7 @@ disp("Testing eye-diagram plotting on noisy sine/cosine wave...");
 
 nf3 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", viridis);
 
-N = randn(1,5e4)/10;
+N = randn(1, 5e3)/10;
 X = [1:length(N)]/100 * 2 * pi;
 
 niceeye(nf3, [5*sin(X(1:length(X)/2)),5*sin(X((length(X)/2+1):end)+pi)] + N, 100);
