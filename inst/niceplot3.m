@@ -4,10 +4,10 @@ function nf = niceplot3(nf, x, y, z, varargin)
   figure(nf.f);
   hold on;
 
-  cm_override = 0;
+  cm_override = 1;
 
   if any(strcmp(varargin, 'Color')) ~= 0
-    cm_override = 1;
+    cm_override = 0;
   endif
 
  
