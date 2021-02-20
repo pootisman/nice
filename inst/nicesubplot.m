@@ -15,33 +15,40 @@
 ## You should have received a copy of the GNU General Public License
 ## along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-## usage: fs = nicehist(nf, y, varargin)
+## usage: fs = nicesubplot(nf, idx)
 ##
-## Draw histogram on instance of Nice Figure nf
-##
-## nf - root struct for Nice Figure to draw on 
-## x, y - bin centers and weights
+## Spawn an instance Nice Figure. Box and grid modifiers
+## are automatically enabled, as well as holding the plots
+## 
 ## varargin may contain following parameters:
-## "Color" - use built-in figure colormap
+## "fontname" - Which font to use on figure (Default: Latin Modern Roman)
+## "fontsize" - What size of the font to use (Default: 14)
+## "position" - Where the figure shall appear on display (Default: [300 200])
+## "size" - Which size should be used for the figure (Default: [560 420])
+## "cmap" - Default colormap for the figure (Default: viridis(64))
 ##
 ## output "fs" is a root struct for Nice Figure, should be passed
 ## to other nice functions to draw modify content in figure
 ##
 
-function nf = nicehist(nf, x, y, varargin)
+function nf = nicesubplot(nf, idx, varargin)
   assert(isstruct(nf), "niceplot expects first argument to be a nicefig struct");
   
   figure(nf.f);
-  axes(nf.cax);
-  hold on;
+  
+  fontname = nf.fontname;
+  fontsize = nf.fontsize;
+
+  cmap = viridis(64);
   
   if length(varargin) > 0
-    Y = varargin{1};
-    varargin = varargin(2:end);
-    plot(y, Y, 'Color', nf.cmap(nf.cmid,:), varargin);
+    hax = subplot(idx, varargin);
   else
-    plot(y, 'Color', nf.cmap(nf.cmid,:), varargin);
-  endif
+    hax = subplot(idx);
+  end
   
-  nf.cmid=nf.cmid+1;
+  set(hax, 'fontname', fontname);
+  set(hax, 'fontsize', fontsize);
+  
+  nf.cax = hax;
 endfunction

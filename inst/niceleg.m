@@ -34,6 +34,7 @@ function nf = niceleg(nf, varargin)
   assert(isstruct(nf), "niceleg expects first argument to be a nicefig struct");
   
   figure(nf.f);
+  axes(nf.cax);
   
   fontname = nf.fontname;
   fontsize = nf.fontsize;

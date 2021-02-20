@@ -34,6 +34,7 @@ function nf = niceplot(nf, y, varargin)
   assert(isstruct(nf), "niceplot expects first argument to be a nicefig struct");
   
   figure(nf.f);
+  axes(nf.cax);
   hold on;
 
   cm_override = 1;

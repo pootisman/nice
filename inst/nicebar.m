@@ -32,6 +32,7 @@ function nf = nicebar(nf, varargin)
   assert(isstruct(nf), "nicebar expects first argument to be a nicefig struct");
 
   figure(nf.f);
+  axes(nf.cax);
 
   fontname = nf.fontname;
   fontsize = nf.fontsize;
@@ -47,6 +48,10 @@ function nf = nicebar(nf, varargin)
       fontsize = varargin{i+1};
       i=i+1;
       reduce_vararg_len = reduce_vararg_len + 2;
+    elseif strcmp(varargin{i}, "title")
+      cbtitle = varargin{i+1};
+      i=i+1;
+      reduce_vararg_len = reduce_vararg_len + 2;
     end
   end
 
@@ -57,6 +62,10 @@ function nf = nicebar(nf, varargin)
   set(cb, 'fontname', fontname);
   set(cb, 'fontsize', fontsize);
   
+  if exist("cbtitle")
+    cbt = get(cb, "Title");
+    set(cbt, "String", cbtitle);
+  end
   
   nf.cbars(end+1) = cb;
 end

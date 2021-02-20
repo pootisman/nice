@@ -33,6 +33,7 @@ function nf = niceeye(nf, sig, sps, varargin)
   assert(isstruct(nf), "niceplot expects first argument to be a nicefig struct");
   
   figure(nf.f);
+  axes(nf.cax);
   hold on;
   
   nsymbs = floor(length(sig)/sps);

@@ -67,6 +67,8 @@ function fs = nicefig(varargin)
   fs.cmid = 1;
   fs.legs = {};
   fs.cbars = {};
+  fs.hax = {};
+  fs.cax = fs.a;
   
   box on;
   grid on;

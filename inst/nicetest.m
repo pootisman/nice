@@ -39,7 +39,7 @@ function nicetest()
 
   nf2 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", viridis);
 
-  nicewfall(X, 1:length(X), 50, 100, nf2);
+  nicewfall(nf2, X, 1:length(X), 50, 100);
 
   xlabel("X values");
   ylabel("Y values");
@@ -71,6 +71,32 @@ function nicetest()
   
   niceleg(nf, "Eye diagram");
 
+  nf4 = nicefig();
+  
+  nf4 = nicesubplot(nf4, 221);
+  nf4 = niceeye(nf4, [5*sin(X(1:length(X)/2)),5*sin(X((length(X)/2+1):end)+pi)] + N, 100);
+  xlabel("Normalized time");
+  ylabel("Amplitude");
+  title("Eye-diagram, Sine/Cosine");
+  
+  X = randn(1,1e5);
+
+  X = X + sin(2*pi*[1:length(X)]./length(X));
+  
+  nf4 = nicesubplot(nf4, 222);
+
+  nf4 = nicewfall(nf4, X, 1:length(X), 50, 100);
+
+  xlabel("X values");
+  ylabel("Y values");
+  zlabel("Hit probability");
+  title("3D waterfall surface test [Gaussian histograms]");
+  view(45,45);
+  xlim([-6,6]);
+  
+  nf4 = nicebar(nf4, "title", "Probability", "location", "SouthOutside");
+  
+  
 %niceprint(nf, "sin.png");
 
 endfunction
