@@ -39,7 +39,7 @@ function nf = niceleg(nf, varargin)
   fontname = nf.fontname;
   fontsize = nf.fontsize;
 
-  location = "southeast";
+  location = "best";
   orientation = "vertical";
   numcolumns = 1;
   
