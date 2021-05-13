@@ -36,7 +36,7 @@ function fs = nicefig(varargin)
   fontsize = 14;
   pos = [300 200];
   sz = [560 420];
-  cmap = viridis(64);
+  cmap = lines();
   
   for i = 1:length(varargin)
     if strcmp(varargin{i}, "fontname")
