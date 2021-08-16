@@ -71,7 +71,10 @@ function nicetest()
   
   niceleg(nf, "Eye diagram");
 
-  nf4 = nicefig();
+  
+  disp("Testing sub-plotting...");
+
+  nf4 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", viridis);
   
   nf4 = nicesubplot(nf4, 221);
   nf4 = niceeye(nf4, [5*sin(X(1:length(X)/2)),5*sin(X((length(X)/2+1):end)+pi)] + N, 100);
@@ -97,6 +100,17 @@ function nicetest()
   nf4 = nicebar(nf4, "title", "Probability", "location", "SouthOutside");
   
   
-%niceprint(nf, "sin.png");
+  nf4 = nicesubplot(nf4, 223);
+
+  X = [1:300];
+  Y = sinc(deg2rad(X)) + randn(300)./(X/2);
+  
+  nf4 = stdmean(nf4, X, Y, 'r', 'Display', "Noisy sinc");
+
+  nf4 = niceleg(nf4);
+  
+  xlabel("Degress");
+  ylabel("Y values");
+  title("2D stdmean plot test");
 
 endfunction

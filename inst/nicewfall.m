@@ -59,4 +59,6 @@ function fig_struct = nicewfall(fig_struct, samps, times, Ns, Nt)
     
     colormap(fig_struct.cmap);
     
+    box on;
+    grid on;
 endfunction

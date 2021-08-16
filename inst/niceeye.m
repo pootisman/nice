@@ -47,6 +47,9 @@ function nf = niceeye(nf, sig, sps, varargin)
     plot([1:sps], sig([(i-1)*sps+1:i*sps]), 'Color', nf.cmap(nf.cmid,:), varargin{:});
   endfor
   
+  box on;
+  grid on;
+  
   if cm_override == 0
     nf.cmid=mod(nf.cmid+1, length(nf.cmap));
   endif

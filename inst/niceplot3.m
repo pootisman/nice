@@ -35,6 +35,7 @@ function nf = niceplot3(nf, x, y, z, varargin)
   axes(nf.cax);
   hold on;
 
+
   cm_override = 1;
 
   if any(strcmp(varargin, 'Color')) ~= 0
@@ -47,7 +48,10 @@ function nf = niceplot3(nf, x, y, z, varargin)
   else
       plot3(x, y, z, varargin{:})
   endif
- 
+   
+  box on;
+  grid on;
+  
   if cm_override == 0
     nf.cmid=mod(nf.cmid+1, length(nf.cmap));
   endif
