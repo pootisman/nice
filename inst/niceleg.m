@@ -75,6 +75,7 @@ function nf = niceleg(nf, varargin)
   set(leg, 'fontsize', fontsize);
   set(leg, 'location', location);
   set(leg, 'orientation', orientation);
+  set(leg, 'numcolumns', numcolumns);
   set(leg, 'interpreter', 'tex');
   
   nf.legs(end + 1) = leg;
