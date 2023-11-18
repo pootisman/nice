@@ -1,18 +1,18 @@
-## the Free Software Foundation, either version 3 of the License, or
-## (at your option) any later version.
-##
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## GNU General Public License for more details.
-##
-## You should have received a copy of the GNU General Public License
-## along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-## usage: nicetest()
-##
-## Run all tests for the Nice package
-##
+%% the Free Software Foundation, either version 3 of the License, or
+%% (at your option) any later version.
+%%
+%% This program is distributed in the hope that it will be useful,
+%% but WITHOUT ANY WARRANTY; without even the implied warranty of
+%% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%% GNU General Public License for more details.
+%%
+%% You should have received a copy of the GNU General Public License
+%% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%%
+%% usage: nicetest()
+%%
+%% Run all tests for the Nice package
+%%
 
 function nicetest()
   X = linspace(-pi, pi, 62);
@@ -24,7 +24,7 @@ function nicetest()
 
   for i = phases
     nf = niceplot(nf, X, sin(X + i));
-  endfor
+  end
 
   xlabel("X values");
   ylabel("Y values");
@@ -37,7 +37,7 @@ function nicetest()
 
   X = X + sin(2*pi*[1:length(X)]./length(X));
 
-  nf2 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", viridis);
+  nf2 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", jet);
 
   nicewfall(nf2, X, 1:length(X), 50, 100);
 
@@ -55,11 +55,11 @@ function nicetest()
 
   for i = 1:length(phases)
     niceplot(nf, X, cos(X + phases(i)), 'Color', cm(ceil(i),:));
-  endfor
+  end
 
   disp("Testing eye-diagram plotting on noisy sine/cosine wave...");
 
-  nf3 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", viridis);
+  nf3 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", jet);
 
   N = randn(1,5e4)/10;
   X = [1:length(N)]/100 * 2 * pi;
@@ -74,7 +74,7 @@ function nicetest()
   
   disp("Testing sub-plotting...");
 
-  nf4 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", viridis);
+  nf4 = nicefig("fontname", "Latin Modern Roman", "fontsize", 14, "cmap", jet);
   
   nf4 = nicesubplot(nf4, 221);
   nf4 = niceeye(nf4, [5*sin(X(1:length(X)/2)),5*sin(X((length(X)/2+1):end)+pi)] + N, 100);
@@ -113,4 +113,4 @@ function nicetest()
   ylabel("Y values");
   title("2D stdmean plot test");
 
-endfunction
+end
