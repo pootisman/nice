@@ -37,6 +37,7 @@ function fs = nicefig(varargin)
   pos = [300 200];
   sz = [560 420];
   cmap = lines();
+  shade = "flat";
   
   for i = 1:length(varargin)
     if strcmp(varargin{i}, "fontname")
@@ -54,6 +55,9 @@ function fs = nicefig(varargin)
     elseif strcmp(varargin{i}, "cmap")
       cmap = varargin{i+1};
       i=i+1;
+    elseif strcmp(varargin{i}, "shading")
+      shade = varargin{i+1};
+      i=i+1;
     end
   end
 
@@ -70,6 +74,7 @@ function fs = nicefig(varargin)
   fs.hax = {};
   fs.polys = {};
   fs.cax = fs.a;
+  fs.shading = shade;
   
   box on;
   grid on;

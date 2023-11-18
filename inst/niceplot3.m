@@ -34,7 +34,7 @@ function nf = niceplot3(nf, x, y, z, varargin)
   figure(nf.f);
   axes(nf.cax);
   hold on;
-
+  shading(fs.shade);
 
   cm_override = 1;
 
