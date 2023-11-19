@@ -61,4 +61,10 @@ function fig_struct = nicewfall(fig_struct, samps, times, Ns, Nt)
     
     box on;
     grid on;
+
+    xlim([sampmin, sampmax]);
+    ylim([timemin, timemax]);
+
+    shading(fig_struct.shade);
+    lighting(fig_struct.lights);
 end
