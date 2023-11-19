@@ -15,7 +15,7 @@
 %% You should have received a copy of the GNU General Public License
 %% along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %%
-%% usage: fs = stdmean(nf, x, y, varargin)
+%% usage: fs = nicetstat(nf, x, y, varargin)
 %%
 %% Plot mean and STD on instance of Nice Figure nf
 %%
@@ -31,7 +31,7 @@
 %% to other nice functions to draw modify content in figure
 %%
 
-function nf = stdmean(nf, x, y, varargin)
+function nf = stdtstat(nf, x, y, varargin)
   assert(isstruct(nf), "stdmean expects first argument to be a nicefig struct");
   assert(size(x,2) == size(y,2), "Error: Expected size of X = [1, TIMES], Y = [NSAMPS, TIMES]");
   
