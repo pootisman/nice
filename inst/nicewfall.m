@@ -13,7 +13,7 @@
 %%
 %% Draw waterfall histogram of the time-series
 %%
-%% nf - root struct for Nice Figure to draw on 
+%% nf - root struct for Nice Figure to draw on
 %% samps - sample values
 %% times - sample timestamps
 %% Ns, Nt - Number of "bins" in sample and time domains
@@ -22,43 +22,53 @@
 %% to other nice functions to draw modify content in figure
 %%
 
-function fig_struct = nicewfall(fig_struct, samps, times, Ns, Nt)
+function fig_struct = nicewfall(fig_struct, samps, times, Ns, Nt, varargin)
     if ~exist("fig_struct")
       warning("nicewfall expects nice figure struct, creating fig in-place...");
       fig_struct = nicefig();
     end
-    
+
     figure(fig_struct.f);
     hold on;
-    
+
     sampmin = min(samps);
     sampmax = max(samps);
     nss = floor(length(samps)/Nt);
-    
+
     timemin = min(times);
     timemax = max(times);
-    
-    ss = linspace(sampmin, sampmax, Ns);
+
+    for i = 1:length(varargin)
+      if strcmp(varargin{i}, "binlims")
+        sampmin = varargin{i+1}(1);
+        sampmax = varargin{i+1}(2);
+        i=i+1;
+      end
+    end
+
+    binsize = (sampmax - sampmin) / Ns;
+    bincenters = sampmin+(binsize/2):binsize:sampmax-(binsize/2);
+
     ts = linspace(timemin, timemax, Nt);
 
     Zvals = [];
-    
+
     for i = 1:length(ts)
-      [hits, bins] = hist(samps((i-1)*nss+1:i*nss), ss);
+      [hits, bins] = hist(samps((i-1)*nss+1:i*nss), bincenters);
       hitsn = hits/sum(hits)/(bins(2) - bins(1));
       Zvals = [Zvals; hitsn];
     end
-    
-    [S,T] = meshgrid(ss, ts);
-    
+
+    [S,T] = meshgrid(bincenters, ts);
+
     size(S);
     size(T);
     size(Zvals);
-    
+
     surface(S, T, Zvals, "EdgeColor", "None");
-    
+
     colormap(fig_struct.cmap);
-    
+
     box on;
     grid on;
 

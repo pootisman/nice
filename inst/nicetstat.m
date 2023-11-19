@@ -1,5 +1,5 @@
 %% Copyright (C) 2020-2021 Aleksei Ponomarenko-Timofeev
-%% 
+%%
 %% This file is part of Nice plotter package.
 %%
 %% This program is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 %%
 %% Plot mean and STD on instance of Nice Figure nf
 %%
-%% nf - root struct for Nice Figure to draw on 
+%% nf - root struct for Nice Figure to draw on
 %% x - X values for specific columns of the y [1, Times]
 %% y - data matrix to plot [Nsamps, Times]
 %% varargin may contain following parameters:
@@ -31,37 +31,37 @@
 %% to other nice functions to draw modify content in figure
 %%
 
-function nf = stdtstat(nf, x, y, varargin)
+function nf = nicetstat(nf, x, y, varargin)
   assert(isstruct(nf), "stdmean expects first argument to be a nicefig struct");
   assert(size(x,2) == size(y,2), "Error: Expected size of X = [1, TIMES], Y = [NSAMPS, TIMES]");
-  
+
   figure(nf.f);
   axes(nf.cax);
   hold on;
-  
+
   argv = {};
   argc = 1;
   varargc = 0;
-  
+
   while length(varargin) > varargc
     switch varargin{argc}
       case {"Display"}
         dname = varargin{argc + 1};
         argc = argc + 2;
         varargc = varargc + 2;
-      otherwise  
+      otherwise
         argv{argc} = varargin{argc};
         argc = argc + 1;
         varargc = varargc + 1;
       end
   end
-  
+
   offset = std(y,0,1);
-  
+
   areax = [x, fliplr(x)];
-  
+
   areay = [mean(y,1) - offset, fliplr(mean(y,1) + offset)];
-  
+
   if length(argv) ~= 0
     fh = fill(areax, areay, argv{:});
     pl = plot(x, mean(y,1), argv{:});
@@ -69,23 +69,23 @@ function nf = stdtstat(nf, x, y, varargin)
     fh = fill(areax, areay, 'm');
     pl = plot(x, mean(y,1), 'm');
   end
-  
+
   if ~exist("dname", "var")
     dname = get(fh, "displayname");
   end
-  
+
   set(fh, "displayname", strcat(dname, " STD"));
-  
+
   if ~exist("dname", "var")
     dname = get(pl, "displayname");
   end
-  
+
   set(pl, "displayname", strcat(dname, " mean"));
-  
+
   nf.polys{length(nf.polys) + 1} = fh;
-  
+
   set(fh, 'facealpha', 0.2);
-  
+
   grid on;
   box on;
 end
