@@ -47,14 +47,13 @@ function nf = stdmean(nf, x, y, varargin)
     switch varargin{argc}
       case {"Display"}
         dname = varargin{argc + 1};
-        argc = argc + 2
+        argc = argc + 2;
         varargc = varargc + 2;
       otherwise  
         argv{argc} = varargin{argc};
         argc = argc + 1;
         varargc = varargc + 1;
       end
-      
   end
   
   offset = std(y,0,1);
